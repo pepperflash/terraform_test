@@ -62,4 +62,12 @@ resource "aws_instance" "prod_bastion" {
   }
 }
 
+resource "aws_eip" "prod_web"{
+  instance = aws_instance.prod_bastion.id
+
+  tags = {
+    "Terraform" : "True"
+  }
+
+}
 
